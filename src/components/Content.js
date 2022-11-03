@@ -42,7 +42,7 @@ export const Content = () => {
 
   return (
     <div className="bg-white p-2.5">
-      <div style={{ height: "380px" }} className="mx-5">
+      <div style={{ height: "400px" }} className="mx-5">
         <div
           className="flex justify-between"
           style={{ borderBottom: "1px solid gray" }}
@@ -63,7 +63,7 @@ export const Content = () => {
 
        
 
-        <ul style={{ height: "330px", overflowY: "scroll" }}>
+        <ul style={{ height: "350px", overflowY: "scroll" }}>
             {todos.map((todo) => (
 
                 <ShowTodo 
