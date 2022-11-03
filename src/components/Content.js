@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+import { CountTodo } from "./CountTodo";
 
 export const Content = () => {
     const [name, setName] = useState("");
@@ -7,19 +8,19 @@ export const Content = () => {
 
     // let listTodo = []
     const addTodo = () => {
-    if (!name) {
-        alert("Bạn phải nhập trường này rồi mới click");
-        return;
-    } else {
-        let newTodo = {
-            id: uuidv4(),
-            name: name,
-            checked: false,
-        };
-        setTodos([newTodo, ...todos]);
-        setName("");
-    }
-  };
+        if (!name) {
+            alert("Bạn phải nhập trường này rồi mới click");
+            return;
+        } else {
+            let newTodo = {
+                id: uuidv4(),
+                name: name,
+                checked: false,
+            };
+            setTodos([newTodo, ...todos]);
+            setName("");
+        }
+    };
 
     const handleDeleteTodo = (id)=>{
         setTodos( todos.filter((todo) => {
@@ -68,11 +69,9 @@ export const Content = () => {
                 </ul>
             </div>
 
-            <div className="flex justify-between py-2">
-                <p>{todos.length} tasks</p>
-                <p>{todos.filter((todo) => todo.checked === true).length} complete</p>
-                <p>{todos.filter((todo) => todo.checked === false).length} open</p>
-            </div>
+            <CountTodo todos = {todos} />
+
+            
         </div>
   );
 };
