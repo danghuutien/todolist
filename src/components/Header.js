@@ -1,21 +1,20 @@
-export const Header = ({height, image})=>{
-
-    // console.log(image)
+const Header = ()=>{
     const headerStyle = {
-        height,
-        backgroundImage: `url(${image})`,
+        height : '100px',
+        backgroundImage : 'url(./banner.jpg)',
         backgroundSize:'cover',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: '50%',
         backgroundPositionX: '50%',
         backgroundPositionY: 'center',
+        
     }
 
     const date = new Date()
-var current_day = date.getDay();
- 
-// Biến lưu tên của thứ
-var day_name = '';
+    let current_day = date.getDay();
+    
+    // Biến lưu tên của thứ
+    let day_name = '';
  
 // Lấy tên thứ của ngày hiện tại
 switch (current_day) {
@@ -51,3 +50,5 @@ switch (current_day) {
         </div>
     )
 }
+
+export default Header

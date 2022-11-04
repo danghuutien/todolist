@@ -1,23 +1,15 @@
-import React from "react";
-import { Content } from "./components/Content";
-import { Header } from "./components/Header";
-import { Footer } from "./components/Footer";
 
+import './App.css';
+import Content from './components/Content';
+import Header from './components/Header';
 
 function App() {
-    const myStyles = {
-        width: '50%',
-        // backgroundColor:'red',
-        // height:'400px',
-        margin: '0 auto'
-    }
   return (
-    <div style={myStyles}>
-        <Header height = "100px" image = "./banner.jpg"/>
+      <div style={{width:'40%', margin:'0 auto'}}>
+        <Header />
         <Content />
-        <Footer />
-    </div>
-  )
+      </div>
+  );
 }
 
 export default App;
