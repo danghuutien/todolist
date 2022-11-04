@@ -6,13 +6,15 @@ import ShowTodo from "./ShowTodo"
 
 
 const Content = ()=>{
+    console.log('Content')
     const[todos, setTodos] = useState([])
-
-    const handleDeleteTodo = (id)=>{
-        setTodos( todos.filter((todo) => {
-            return todo.id !== id
-        }))
-    }
+    const handleDeleteTodo = 
+        (id)=>{
+            setTodos( todos.filter((todo) => {
+                return todo.id !== id
+            }))
+        }
+    
 
     const handleChecked = (id)=>{
         setTodos(todos.map((todo) => {
@@ -21,12 +23,28 @@ const Content = ()=>{
                 return todo;
             }))
     }
+
+// console.log(handleChecked)
+    const addtodo = useCallback( (title)=>{
+        if (!title) {
+            alert("Bạn phải nhập trường này rồi mới click");
+            return;
+        } else {
+            let newTodo = {
+                id: uuidv4(),
+                title: title,
+                checked: false,
+            };
+            setTodos((prevTodo)=>[...prevTodo, newTodo]);
+            
+        }
+    }, [])
    
     
     return (
         <div className="bg-white p-2.5">
             
-            <Addtodo onHandleTodos = {setTodos}/>
+            <Addtodo onHandleTodos = {addtodo}/>
             <ul style={{height: '330px',overflowY:'scroll'}} >
                 {todos.map((todo)=>
                     (<ShowTodo key = {todo.id}

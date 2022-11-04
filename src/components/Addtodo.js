@@ -1,8 +1,11 @@
 import { memo, useCallback, useState } from "react";
-import { v4 as uuidv4 } from "uuid";
+// import { v4 as uuidv4 } from "uuid";
 
 const Addtodo = ({onHandleTodos}) => {
+
+    console.log('Addtodo')
     const [title, setTitle] = useState("")
+
     const onSetTitle = useCallback((e)=>{
         setTitle(e.target.value)
     }, [])
@@ -10,19 +13,9 @@ const Addtodo = ({onHandleTodos}) => {
     
 
     const handleTodo = useCallback(()=>{
-        if (!title) {
-            alert("Bạn phải nhập trường này rồi mới click");
-            return;
-        } else {
-            let newTodo = {
-                id: uuidv4(),
-                title: title,
-                checked: false,
-            };
-            onHandleTodos((prevTodo)=>[...prevTodo, newTodo]);
-            setTitle('')
-        }
-    })
+        onHandleTodos && onHandleTodos(title)
+        setTitle('')
+    }, [title, onHandleTodos])
 
     
     return (
