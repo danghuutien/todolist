@@ -1,7 +1,7 @@
 import { memo, useCallback } from "react"
 
 const CountTodo = ({todos})=>{
-    // console.log(7272727)
+    
 
     // const complete = useCallback(todos.filter((todo) => todo.checked === true), [])
     return (

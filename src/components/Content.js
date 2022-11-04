@@ -8,7 +8,6 @@ import ShowTodo from "./ShowTodo"
 const Content = ()=>{
     const[todos, setTodos] = useState([])
 
-    // console.log(todos)
     const handleDeleteTodo = (id)=>{
         setTodos( todos.filter((todo) => {
             return todo.id !== id
@@ -22,7 +21,7 @@ const Content = ()=>{
                 return todo;
             }))
     }
-    console.log(todos)
+   
     
     return (
         <div className="bg-white p-2.5">

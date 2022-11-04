@@ -7,7 +7,7 @@ const Addtodo = ({onHandleTodos}) => {
         setTitle(e.target.value)
     }, [])
 
-    console.log(title)
+    
 
     const handleTodo = useCallback(()=>{
         if (!title) {
