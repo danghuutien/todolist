@@ -9,7 +9,7 @@ const ShowTodo = ({title, id, checked, onHandleDeleteTodo, onHandleChecked})=>{
     
     const onCheck = useCallback(()=>{
         onHandleChecked && onHandleChecked(id)
-    },[onHandleDeleteTodo])
+    },[onHandleChecked, id])
     return (
         <li style={{borderBottom:'1px solid gray'}} className="flex justify-between mt-5 py-2" >
             <div>
