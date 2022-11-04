@@ -9,11 +9,11 @@ const ShowTodo = ({title, id, checked, onHandleDeleteTodo, onHandleChecked})=>{
     
     const onCheck = useCallback(()=>{
         onHandleChecked && onHandleChecked(id)
-    },[onHandleChecked, id])
+    },[onHandleDeleteTodo])
     return (
         <li style={{borderBottom:'1px solid gray'}} className="flex justify-between mt-5 py-2" >
             <div>
-                <input onChange={onCheck} id={id} type="checkbox" />
+                <input onChange={onCheck} id={id} type="checkbox"  style={{cursor:'pointer'}}/>
                 <label htmlFor={id} style={checked ? {textDecoration: 'line-through'}:{}}  
                         className="ml-2.5">{title}</label>
             </div>

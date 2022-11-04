@@ -23,7 +23,6 @@ const Content = ()=>{
                 return todo;
             }))
     }
-
 // console.log(handleChecked)
     const addtodo = useCallback( (title)=>{
         if (!title) {
