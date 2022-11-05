@@ -3,8 +3,6 @@ import { v4 as uuidv4 } from "uuid";
 import Addtodo from "./Addtodo"
 import CountTodo from "./CountTodo";
 import ShowTodo from "./ShowTodo"
-
-
 const Content = ()=>{
     console.log('Content')
     const[todos, setTodos] = useState([])
@@ -14,8 +12,6 @@ const Content = ()=>{
                 return todo.id !== id
             }))
         }
-    
-
     const handleChecked = (id)=>{
         setTodos(todos.map((todo) => {
             if (todo.id === id) 
@@ -34,13 +30,10 @@ const Content = ()=>{
                 title: title,
                 checked: false,
             };
-            setTodos((prevTodo)=>[...prevTodo, newTodo]);
-            
+            setTodos((prevTodo)=>[...prevTodo, newTodo]); 
         }
     }, [])
-   
-    
-    return (
+   return (
         <div className="bg-white p-2.5">
             
             <Addtodo onHandleTodos = {addtodo}/>
@@ -58,10 +51,8 @@ const Content = ()=>{
                 )}
 
             </ul>
-
             <CountTodo todos = {todos}/>
         </div>
     )
 }
-
 export default Content

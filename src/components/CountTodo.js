@@ -10,9 +10,7 @@ const CountTodo = ({todos})=>{
             <p>{todos.length} tasks</p>
             <p>{complete} complete</p>
             <p>{open} open</p>
-        </div>
-        
+        </div> 
     )
 }
-
 export default CountTodo
