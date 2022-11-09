@@ -1,6 +1,7 @@
+import { memo } from "react"
 
 const CountTodo = ({todos})=>{
-    console.log('CountTodo')
+    // console.log('CountTodo')
     const complete = todos.filter((todo) => todo.checked === true).length
     const open = todos.filter((todo) => todo.checked === false).length
 
@@ -13,4 +14,4 @@ const CountTodo = ({todos})=>{
         </div> 
     )
 }
-export default CountTodo
+export default memo(CountTodo)

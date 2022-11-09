@@ -1,15 +1,15 @@
-import { memo, useCallback } from "react"
+import { memo } from "react"
 
 const ShowTodo = ({title, id, checked, onHandleDeleteTodo, onHandleChecked})=>{
     
-    console.log('ShowTodo')
-    const onDelete = useCallback(()=>{
+    // console.log('ShowTodo')
+    const onDelete = ()=>{
         onHandleDeleteTodo && onHandleDeleteTodo(id)
-    },[onHandleDeleteTodo, id])
+    }
     
-    const onCheck = useCallback(()=>{
+    const onCheck = ()=>{
         onHandleChecked && onHandleChecked(id)
-    },[onHandleChecked, id])
+    }
     return (
         <li style={{borderBottom:'1px solid gray'}} className="flex justify-between mt-5 py-2" >
             <div>

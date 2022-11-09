@@ -3,7 +3,7 @@ import { memo, useCallback, useState } from "react";
 
 const Addtodo = ({onHandleTodos, inputEl}) => {
 
-    console.log('Addtodo')
+    // console.log('Addtodo')
     const [title, setTitle] = useState("")
 
     const onSetTitle = useCallback((e)=>{

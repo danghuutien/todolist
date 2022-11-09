@@ -43,7 +43,7 @@ switch (current_day) {
 
  
     
-    console.log('Header')
+    // console.log('Header')
     return (
         <div style={headerStyle}>
             <p  className="text-white py-5 font-bold text-xl ml-5">{day_name}, {date.getDate()}/ {date.getMonth()+1}/ {date.getFullYear()}</p>

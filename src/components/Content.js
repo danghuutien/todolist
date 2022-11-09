@@ -3,24 +3,27 @@ import { v4 as uuidv4 } from "uuid";
 import Addtodo from "./Addtodo"
 import CountTodo from "./CountTodo";
 import ShowTodo from "./ShowTodo"
-const Content = ()=>{
-    console.log('Content')
+const Content = () => {
     const inputEl = useRef(null);
     const[todos, setTodos] = useState([])
-    const handleDeleteTodo = 
-        (id)=>{
-            setTodos( todos.filter((todo) => {
-                return todo.id !== id
-            }))
-        }
-    const handleChecked = (id)=>{
-        setTodos(todos.map((todo) => {
-            if (todo.id === id) 
-                todo.checked = !todo.checked;
+
+    const handleDeleteTodo = useCallback((id)=>{
+        setTodos( todos.filter((todo) => {
+            return todo.id !== id
+        }))
+    },[todos])
+
+    const handleChecked = useCallback((id)=>{
+        setTodos((prevTodo) => prevTodo.map((todo) => {
+                if (todo.id === id) {
+                    todo.checked = !todo.checked;
+                }
+                
                 return todo;
-            }))
-    }
-// console.log(handleChecked)
+            })
+         )
+    },[todos])
+
     const addtodo = useCallback( (title)=>{
         if (!title) {
             alert("Bạn phải nhập trường này rồi mới click");
@@ -40,7 +43,7 @@ const Content = ()=>{
             <Addtodo
             inputEl = {inputEl} onHandleTodos = {addtodo}/>
             <ul style={{height: '330px',overflowY:'scroll'}} >
-                {todos.map((todo)=>
+                {todos.length > 0 ? (todos.map((todo)=>
                     (<ShowTodo key = {todo.id}
                         title = {todo.title}
                         id = {todo.id}
@@ -50,7 +53,7 @@ const Content = ()=>{
                         onHandleChecked = {handleChecked}
                     />)
                 
-                )}
+                )): ''}
 
             </ul>
             <CountTodo todos = {todos}/>
