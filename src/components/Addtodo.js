@@ -1,7 +1,7 @@
 import { memo, useCallback, useState } from "react";
 // import { v4 as uuidv4 } from "uuid";
 
-const Addtodo = ({onHandleTodos}) => {
+const Addtodo = ({onHandleTodos, inputEl}) => {
 
     console.log('Addtodo')
     const [title, setTitle] = useState("")
@@ -15,6 +15,7 @@ const Addtodo = ({onHandleTodos}) => {
     const handleTodo = useCallback(()=>{
         onHandleTodos && onHandleTodos(title)
         setTitle('')
+        inputEl.current.focus();
     }, [title, onHandleTodos])
 
     
@@ -23,7 +24,7 @@ const Addtodo = ({onHandleTodos}) => {
         <div className="flex justify-between"
                 style={{borderBottom: "1px solid gray", color: "gray"}}
         >
-        <input value={title} onChange={onSetTitle}
+        <input ref={inputEl} value={title} onChange={onSetTitle}
                 className="p-2 w-3/4 focus-visible:outline-none "
                 type="text"
                 placeholder="Add tack...."

@@ -1,10 +1,11 @@
-import { useCallback, useState } from "react"
+import { useCallback, useState, useRef  } from "react"
 import { v4 as uuidv4 } from "uuid";
 import Addtodo from "./Addtodo"
 import CountTodo from "./CountTodo";
 import ShowTodo from "./ShowTodo"
 const Content = ()=>{
     console.log('Content')
+    const inputEl = useRef(null);
     const[todos, setTodos] = useState([])
     const handleDeleteTodo = 
         (id)=>{
@@ -36,7 +37,8 @@ const Content = ()=>{
    return (
         <div className="bg-white p-2.5">
             
-            <Addtodo onHandleTodos = {addtodo}/>
+            <Addtodo
+            inputEl = {inputEl} onHandleTodos = {addtodo}/>
             <ul style={{height: '330px',overflowY:'scroll'}} >
                 {todos.map((todo)=>
                     (<ShowTodo key = {todo.id}
