@@ -17,7 +17,7 @@ const ShowTodo = ({title, id, checked, onHandleDeleteTodo, onHandleChecked})=>{
                 <label htmlFor={id} style={checked ? {textDecoration: 'line-through'}:{}}  
                         className="ml-2.5">{title}</label>
             </div>
-            <i onClick={onDelete} className="fa-solid fa-trash cursor-pointer mr-5"></i>
+            <button onClick={onDelete} className="fa-solid fa-trash cursor-pointer mr-5"></button>
         </li>
     )
 }

@@ -29,10 +29,10 @@ const Addtodo = ({onHandleTodos, inputEl}) => {
                 type="text"
                 placeholder="Add tack...."
         />
-        <i  
+        <button  
             onClick={handleTodo}
             className="cursor-pointer fa-regular fa-pen-to-square p-2 pr-5"
-        ></i>
+        ></button>
         </div>
     )
 };
