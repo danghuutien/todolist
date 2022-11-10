@@ -12,11 +12,11 @@ const Addtodo = ({onHandleTodos, inputEl}) => {
 
     
 
-    const handleTodo = useCallback(()=>{
+    const handleTodo = ()=>{
         onHandleTodos && onHandleTodos(title)
         setTitle('')
         inputEl.current.focus();
-    }, [title, onHandleTodos])
+    }
 
     
     return (
