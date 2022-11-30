@@ -7,6 +7,7 @@ const ShowTodo = ({todo})=>{
     // console.log('ShowTodo')
     const dispatch = useDispatch();
     const onDelete = useCallback(()=>{
+        
         dispatch(todosSlice.actions.removeTodo(todo.id))
     },[])    
 
