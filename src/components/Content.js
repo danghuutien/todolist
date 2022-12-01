@@ -35,7 +35,7 @@ const Content = () => {
         <div className="bg-white p-2.5">
             <Addtodo
                 inputEl = {inputEl} />
-            <ul style={{height: '330px', overflowY:'scroll'}} >
+            <ul className="h-80 overflow-scroll" >
                 {todos.length > 0 ? (todos.map((todo)=>
                     (<ShowTodo key = {todo.id}
                         todo = {todo}

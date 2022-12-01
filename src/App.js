@@ -5,7 +5,7 @@ import Header from './components/Header';
 
 function App() {
   return (
-      <div style={{width:'40%', margin:'0 auto'}}>
+      <div className='w-5/12 mx-auto'>
         <Header />
         <Content />
       </div>

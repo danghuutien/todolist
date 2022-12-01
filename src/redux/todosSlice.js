@@ -28,7 +28,7 @@ export default createSlice({
         }, 
         removeTodo: (state, action) => {
             state.todoState = state.todoState.filter(todo => todo.id !== action.payload);
-            axios.delete('https://637dc8f3cfdbfd9a639ca370.mockapi.io/todolist/'+action.payload)
+            
         },
         checkedTodo: (state, action) => {
             

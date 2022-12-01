@@ -16,33 +16,38 @@ const Addtodo = ({inputEl}) => {
     }, [])
 
     const handleTodo = useCallback(()=>{
-        axios.post('https://637dc8f3cfdbfd9a639ca370.mockapi.io/todolist', 
-        {
-            title: title,
-            checked: false,
-        })
-        .then((res)=>{
-            console.log(res.data)
-            dispatch(
-                todosSlice.actions.addTodo({
-                    id: res.data.id,
-                    title: res.data.title,
-                    checked: res.data.checked,
+        if(title == ''){
+            alert('trường này bắt buộc nhập')
+        }else{
+
+            axios.post('https://637dc8f3cfdbfd9a639ca370.mockapi.io/todolist', 
+            {
+                title: title,
+                checked: false,
             })
-            )
-            
-        })
-
-
-        setTitle('')
-        inputEl.current.focus();
+            .then((res)=>{
+                // console.log(res.data)
+                dispatch(
+                    todosSlice.actions.addTodo({
+                        id: res.data.id,
+                        title: res.data.title,
+                        checked: res.data.checked,
+                })
+                )
+                
+            })
+    
+    
+            setTitle('')
+            inputEl.current.focus();
+        }
     },[title])
 
 
     useEffect(()=>{
         axios.get('https://637dc8f3cfdbfd9a639ca370.mockapi.io/todolist')
         .then((res)=>{
-            console.log(res.data)
+            // console.log(res.data)
             dispatch(
                 todosSlice.actions.setInit(res.data)
             )
